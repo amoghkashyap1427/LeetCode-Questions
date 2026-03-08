@@ -1,2 +1,2 @@
 # LeetCode-Questions
-List of leetcode questions of DSA to do.
+List of leetcode questions of DSA done.
