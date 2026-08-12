@@ -1,24 +1,16 @@
 class Solution {
 public:
 
-    bool isAlphaNum(char ch){
-        if((ch>='a' && ch<='z') || (ch>='A' && ch<='Z') || (int(ch)>=48 && int(ch)<=57)){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     bool isPalindrome(string s) {
         int st=0, end=s.size();
 
         while(st<end){
-            if(!isAlphaNum(s[st])){
+            if(!(isalnum(s[st]))){
                 st++;
                 continue;
             }
 
-            if(!isAlphaNum(s[end])){
+            if(!(isalnum(s[end]))){
                 end--;
                 continue;
             }
