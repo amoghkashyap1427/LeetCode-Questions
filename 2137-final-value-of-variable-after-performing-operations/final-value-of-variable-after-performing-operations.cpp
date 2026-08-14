@@ -15,8 +15,6 @@ public:
             if(s[2]=='-'){
                 x--;
             }
-            cout<<s<<" ";
-            cout<<x<<" ";
         }
         return x;
     }
