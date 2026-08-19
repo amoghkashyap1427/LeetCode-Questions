@@ -8,7 +8,6 @@ public:
             rev = rev*10 + add_on;
             n/=10;
         }
-        // returning the palindrome check
         return (rev==x);
     }
 };
