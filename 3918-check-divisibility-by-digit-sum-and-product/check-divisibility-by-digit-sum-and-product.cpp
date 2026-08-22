@@ -9,7 +9,6 @@ public:
             p*=d;
             num/=10;
         }
-        cout<<sum<<" "<<p<<endl;
         return (n%(sum+p)==0)?true:false;
     }
 };
