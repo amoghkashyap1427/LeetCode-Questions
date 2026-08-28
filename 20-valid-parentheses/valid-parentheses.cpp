@@ -10,7 +10,7 @@ public:
             if(ch=='{' || ch=='(' || ch=='['){
                 st.push(ch);
             } else {
-                if(st.empty()) {
+                if(st.empty()){
                     return false;
                 }
 
@@ -20,6 +20,7 @@ public:
                 st.pop();
             }
         }
+
         return st.empty();
     }
 };
