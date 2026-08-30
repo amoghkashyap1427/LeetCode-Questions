@@ -10,17 +10,13 @@ public:
             if(nums[st]<=nums[mid]){
                 if(nums[st]<=target && target<=nums[mid]){
                     end=mid-1;
-                }
-                else{
+                } else {
                     st=mid+1;
                 }
-
-            }
-            else{
-                if(nums[mid]<=target && target<=nums[end]){
-                    st=mid+1;                
-                }
-                else{
+            } else {
+                if(nums[end]>=target && target>=nums[mid]){
+                    st=mid+1;
+                } else {
                     end=mid-1;
                 }
             }
