@@ -1,18 +1,23 @@
 class Solution {
 public:
     int countCommas(int n) {
-        if(n==100000){
-            return 99001;
+        long long ans = 0;
+
+        // 1000 to 999999 -> 1 comma
+        if (n >= 1000) {
+            ans += min(n, 999999) - 999;
         }
-        if (n < 1000) {
-            return 0;
+
+        // 1000000 to 999999999 -> 2 commas
+        if (n >= 1000000) {
+            ans += 2LL * (min(n, 999999999) - 999999);
         }
-        int sum = 0;
-        for (int i = 1000; i <= n; i++) {
-            string s = to_string(i);
-            int l = s.size();
-            sum += (l / 3);
+
+        // 1000000000 to n -> 3 commas
+        if (n >= 1000000000) {
+            ans += 3LL * (n - 999999999);
         }
-        return (sum);
+
+        return ans;
     }
 };
