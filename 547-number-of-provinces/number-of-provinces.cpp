@@ -1,24 +1,36 @@
 class Solution {
-public:
-    void dfs(int i, vector<vector<int>>& isConnected, vector<bool>&vis){
-        vis[i]=true;
-        for(int j=0; j<isConnected[i].size(); j++){
-            if(isConnected[i][j]==1 && !vis[j]){
-                dfs(j, isConnected, vis);
+private:
+    void dfs(int node, vector<vector<int>>& adjLs, vector<bool>& vis) {
+        vis[node] = true;
+        for (int it : adjLs[node]) {
+            if (!vis[it]) {
+                dfs(it, adjLs, vis);
             }
         }
     }
 
+public:
     int findCircleNum(vector<vector<int>>& isConnected) {
-        int c=0;
-        int n=isConnected.size();
-        vector<bool>vis(n, false);
-        for(int i=0; i<n; i++){
-            if(!vis[i]){
-                c++;
-                dfs(i, isConnected, vis);
+        int V = isConnected.size();
+        vector<vector<int>> adjLs(V);
+
+        // convert adjacency matrix to list
+        for (int i = 0; i < V; i++) {
+            for (int j = 0; j < V; j++) {
+                if (isConnected[i][j] == 1 && i != j) {
+                    adjLs[i].push_back(j);
+                }
             }
         }
-        return c;
+
+        vector<bool> vis(V, false);
+        int cnt = 0;
+        for (int i = 0; i < V; i++) {
+            if (!vis[i]) {
+                cnt++;
+                dfs(i, adjLs, vis);
+            }
+        }
+        return cnt;
     }
 };
