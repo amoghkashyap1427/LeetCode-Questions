@@ -5,7 +5,6 @@ public:
         for(int i=0; i<nums.size(); i++){
             if(nums[i]%2==0){
                 ans|=nums[i];
-                cout<<ans<<" ";
             }
         }
         return ans;
