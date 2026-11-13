@@ -17,7 +17,7 @@ public:
             }
             return cnt1 < cnt2;
         };
-        stable_sort(arr.begin(), arr.end(), comp);
+        sort(arr.begin(), arr.end(), comp);
         return arr;
     }
 };
